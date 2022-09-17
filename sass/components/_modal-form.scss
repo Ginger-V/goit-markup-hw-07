@@ -16,24 +16,10 @@
     margin-bottom: 10px;
 }
 
-.modal-form-field:focus-within .modal-form-input,
-.modal-form-field:hover .modal-form-input {
-    border: 1px solid var(--accent-color--);
-}
-
-.modal-form-field:focus-within .modal-form-input-icon,
-.modal-form-field:hover .modal-form-input-icon {
-    fill: var(--accent-color--);
-}
 
 .modal-form-field-text:nth-child(4) {
     display: block;
     margin-bottom: 20px;
-}
-
-.modal-form-field-text:hover .modal-form-message,
-.modal-form-field-text:focus .modal-form-message {
-    border: 1px solid var(--accent-color--);
 }
 
 .modal-form-input {
@@ -43,18 +29,17 @@
     border-radius: 4px;
     padding-left: 42px;
     transition: border-color var(--transition-timing-function);
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-color--);
+        }
+
+    .modal-form-field:focus-within &,
+    .modal-form-field:hover & {
+        border: 1px solid var(--accent-color--);
+        }
 }
-
-.modal-form-input:focus {
-    outline: none;
-    border-color: var(--accent-color--);
-}
-
-
-.modal-form-input:focus+.model-form-input-icon {
-    fill: var(--accent-color--);
-}
-
 
 .modal-form-check-field {
     display: flex;
@@ -68,7 +53,6 @@
     letter-spacing: 0.03em;
     color: #757575;
 }
-
 
 .modal-form-field-tag {
     display: block;
@@ -95,12 +79,21 @@
     height: 18px;
     fill: #212121;
     transition: fill var(--transition-timing-function);
-}
 
-.modal-form-input-icon:hover,
-.modal-form-input-icon:focus {
-    cursor: pointer;
-    fill: var(--accent-color--);
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        fill: var(--accent-color--);
+        }
+    
+    .modal-form-input:focus+ & {
+        fill: var(--accent-color--);
+        }
+        
+    .modal-form-field:focus-within &,
+    .modal-form-field:hover & {
+        fill: var(--accent-color--);
+    }
 }
 
 .modal-form-message {
@@ -112,15 +105,20 @@
     border-radius: 4px;
     resize: none;
     transition: border-color var(--transition-timing-function);
-}
 
-.modal-form-message::placeholder {
-    color: rgba(117, 117, 117, 0.5);
-}
+    &::placeholder {
+        color: rgba(117, 117, 117, 0.5);
+        }
+    
+    &:focus {
+        outline: none;
+        border-color: var(--accent-color--);
+        }
 
-.modal-form-message:focus {
-    outline: none;
-    border-color: var(--accent-color--);
+    .modal-form-field-text:hover &,
+    .modal-form-field-text:focus & {
+            border: 1px solid var(--accent-color--);
+    }
 }
 
 .modal-form-check {
@@ -136,28 +134,27 @@
     border-radius: 4px;
     margin-right: 7px;
     transition: background-color var(--transition-timing-function),
-        box-shadow var(--transition-timing-function);
+    box-shadow var(--transition-timing-function);
 
-}
+.modal-form-check:checked+ & {
+        background-color: var(--accent-color--);
+        }
+        
+.modal-form-check:checked+ & {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+        0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+} 
 
 .modal-form-own-checkbox-icon {
     display: none;
     fill: #FFFFFF;
     transition: fill var(--transition-timing-function);
-}
 
-.modal-form-check:checked+.modal-form-own-checkbox {
-    background-color: var(--accent-color--);
-}
-
-.modal-form-check:checked+.modal-form-own-checkbox>.modal-form-own-checkbox-icon {
+.modal-form-check:checked+.modal-form-own-checkbox> & {
     display: block;
-}
-
-.modal-form-check:checked+.modal-form-own-checkbox {
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-        0px 1px 1px rgba(0, 0, 0, 0.14),
-        0px 2px 1px rgba(0, 0, 0, 0.2);
+    }
 }
 
 .submit-link {
@@ -188,12 +185,11 @@
     border-radius: 4px;
     border: 1px solid transparent;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-
-.modal-form-submit:hover,
-.modal-form-submit:focus {
-    cursor: pointer;
-    background-color: #ffffff;
-    color: #2196F3;
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        background-color: #ffffff;
+        color: #2196F3;
+        }
 }
